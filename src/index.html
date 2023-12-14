@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../dist/output.css" />
+    <title>Document</title>
+  </head>
+  <body class="bg-[#f0eef1]">
+    <div class="relative min-h-screen">
+      <header
+        class="flex h-24 items-center justify-center bg-white drop-shadow-md"
+      >
+        <h1 class="text-4xl font-extrabold tracking-wider underline">
+          Library Project
+        </h1>
+      </header>
+      <main>
+        <div class="mt-8 flex h-24 items-center justify-center">
+          <button
+            class="duration-400 rounded-md p-3 text-2xl font-bold tracking-wide transition ease-out hover:bg-gray-300"
+          >
+            + Add book
+          </button>
+        </div>
+        <section
+          class="mx-auto flex w-[70%] flex-wrap justify-center gap-5 pb-16"
+        >
+          <article
+            class="flex w-[24rem] flex-col gap-3 rounded-lg border border-gray-200 bg-white p-5 px-10 text-center shadow-md"
+          >
+            <h2 class="text-3xl font-bold">Harry Potter</h2>
+            <h2 class="text-2xl">J.K. Rowling</h2>
+            <p class="text-xl">265 pages</p>
+            <div class="mt-5 flex flex-col gap-5">
+              <button
+                class="rounded-md bg-green-400 p-2 text-xl font-semibold transition duration-300 ease-in-out hover:bg-green-600"
+              >
+                Read
+              </button>
+              <button
+                class="rounded-md bg-red-300 p-2 text-xl font-semibold transition duration-300 ease-in-out hover:bg-red-500"
+              >
+                Remove
+              </button>
+            </div>
+          </article>
+        </section>
+      </main>
+
+      <footer class="absolute bottom-2 flex w-full items-center justify-center">
+        <p class="text-lg font-semibold tracking-wide">
+          Copyright &copy; 2023 Jiří Gorčík
+        </p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
