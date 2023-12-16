@@ -18,34 +18,61 @@
       <main>
         <div class="mt-8 flex h-24 items-center justify-center">
           <button
-            class="duration-400 rounded-md p-3 text-2xl font-bold tracking-wide transition ease-out hover:bg-gray-300"
+            data-open-modal
+            class="duration-400 rounded-md p-3 text-2xl font-bold tracking-wide outline-none transition ease-out hover:bg-gray-300"
           >
             + Add book
           </button>
         </div>
-        <section
-          class="mx-auto flex w-[70%] flex-wrap justify-center gap-5 pb-16"
+        <dialog
+          data-modal
+          class="w-72 rounded-xl backdrop:bg-black backdrop:opacity-50"
         >
-          <article
-            class="flex w-[24rem] flex-col gap-3 rounded-lg border border-gray-200 bg-white p-5 px-10 text-center shadow-md"
+          <form
+            action=""
+            class="flex flex-col items-center gap-4 rounded-xl border bg-[#f0eef1] py-7 shadow-md"
           >
-            <h2 class="text-3xl font-bold">Harry Potter</h2>
-            <h2 class="text-2xl">J.K. Rowling</h2>
-            <p class="text-xl">265 pages</p>
-            <div class="mt-5 flex flex-col gap-5">
-              <button
-                class="rounded-md bg-green-400 p-2 text-xl font-semibold transition duration-300 ease-in-out hover:bg-green-600"
+            <h1 class="text-xl font-bold">Add new book</h1>
+            <input
+              data-title
+              type="text"
+              placeholder="Title"
+              class="w-56 rounded-md border-none p-2 outline-none placeholder:font-semibold"
+              required
+            />
+            <input
+              data-author
+              type="text"
+              placeholder="Author"
+              class="w-56 rounded-md border-none p-2 outline-none placeholder:font-semibold"
+              required
+            />
+            <input
+              data-pages
+              type="number"
+              placeholder="Pages"
+              class="w-56 rounded-md border-none p-2 outline-none placeholder:font-semibold"
+              required
+              min="0"
+            />
+            <div class="flex items-center justify-center gap-3">
+              <label for="read" class="font-semibold tracking-wide"
+                >Have you read it?</label
               >
-                Read
-              </button>
-              <button
-                class="rounded-md bg-red-300 p-2 text-xl font-semibold transition duration-300 ease-in-out hover:bg-red-500"
-              >
-                Remove
-              </button>
+              <input data-read
+                id="read"
+                type="checkbox"
+                class="h-4 w-4 accent-gray-100"
+              />
             </div>
-          </article>
-        </section>
+            <button data-modal-submit class="w-56 rounded-md bg-green-400 p-2">
+              Submit
+            </button>
+          </form>
+        </dialog>
+        <section 
+          class="book-sect mx-auto mt-7 flex w-[70%] flex-wrap justify-center gap-5 pb-16 "
+        ></section>
       </main>
 
       <footer class="absolute bottom-2 flex w-full items-center justify-center">

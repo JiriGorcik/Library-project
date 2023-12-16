@@ -1,8 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./Library-project/src/**/*.{html,js}"],
+  content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        modalPop: {
+          '0%': { transform: 'scale(0.1)' },
+          '50%': { transform: 'scale(0.5)' },
+          "100%" : { transform: 'scale(1)' },
+        }
+      }
+    },
   },
   plugins: [],
-};
+}
