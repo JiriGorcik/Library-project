@@ -117,10 +117,13 @@ const addBookToLibrary = () => {
   render()
 }
 
-modalSubmit.addEventListener("click", (e) => {
+/* modalSubmit.addEventListener("click", (e) => {
   if (document.querySelector("form").checkValidity()) {
     e.preventDefault()
     modal.close()
     addBookToLibrary()
   }
-})
+}) */
+
+
+console.log("dawa")
