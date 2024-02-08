@@ -21,6 +21,14 @@ modal.addEventListener("mousedown", (e) => {
   }
 })
 
+modalSubmit.addEventListener("click", (e) => {
+  if (document.querySelector("form").checkValidity()) {
+    e.preventDefault()
+    modal.close()
+    addBookToLibrary()
+  }
+})
+
 let library = []
 
 /* Book Constructor */
@@ -31,15 +39,19 @@ function Book(title, author, pages, read) {
   this.read = read
 }
 
-Book.prototype.toggleRead = function () {
-  this.read = !this.read
-}
-
 const toggleRead = (index) => {
-  library[index].toggleRead()
+  library[index].read = !library[index].read
+  updateLocalStorage()
   render()
 }
 
+const removeBook = (index) => {
+  library.splice(index, 1)
+  updateLocalStorage()
+  render()
+}
+
+/* Render Book Card */
 const render = () => {
   let libraryBook = document.querySelector(".book-sect")
   libraryBook.textContent = ""
@@ -100,11 +112,6 @@ const render = () => {
   }
 }
 
-const removeBook = (index) => {
-  library.splice(index, 1)
-  render()
-}
-
 const addBookToLibrary = () => {
   let title = document.querySelector("[data-title]").value
   let author = document.querySelector("[data-author]").value
@@ -114,16 +121,20 @@ const addBookToLibrary = () => {
   let newBook = new Book(title, author, pages, read)
   library.push(newBook)
 
+  updateLocalStorage()
   render()
 }
 
-/* modalSubmit.addEventListener("click", (e) => {
-  if (document.querySelector("form").checkValidity()) {
-    e.preventDefault()
-    modal.close()
-    addBookToLibrary()
-  }
-}) */
+/* Local Storage */
+const updateLocalStorage = () => {
+  localStorage.setItem("book", JSON.stringify(library))
+}
 
+const checkLocalStorage = () => {
+  if (localStorage.getItem("book")) {
+    library = JSON.parse(localStorage.getItem("book"))
+    render()
+  } 
+}
 
-console.log("dawa")
+checkLocalStorage()
